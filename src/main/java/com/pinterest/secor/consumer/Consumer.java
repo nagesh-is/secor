@@ -37,6 +37,7 @@ import com.pinterest.secor.uploader.UploadManager;
 import com.pinterest.secor.uploader.Uploader;
 import com.pinterest.secor.util.ReflectionUtil;
 import com.pinterest.secor.writer.MessageWriter;
+import jdk.internal.jline.internal.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -207,6 +208,7 @@ public class Consumer extends Thread {
                 return false;
             }
             rawMessage = mMessageReader.read();
+            Log.info("Raw payload: "+rawMessage.getPayload().toString());
         } catch (LegacyConsumerTimeoutException e) {
             // We wait for a new message with a timeout to periodically apply the upload policy
             // even if no messages are delivered.
