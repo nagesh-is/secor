@@ -208,7 +208,7 @@ public class Consumer extends Thread {
                 return false;
             }
             rawMessage = mMessageReader.read();
-            Log.info("Raw payload: "+rawMessage.getPayload().toString());
+            LOG.info("Raw payload: "+rawMessage.getPayload().toString());
         } catch (LegacyConsumerTimeoutException e) {
             // We wait for a new message with a timeout to periodically apply the upload policy
             // even if no messages are delivered.
